@@ -59,7 +59,7 @@ function App() {
       const id = JSON.parse(localStorage.getItem('user'))._id
       const token = localStorage.getItem('token').slice(1, -1)
       console.log(token)
-      axios.get(`https://sgp-feedback-system.herokuapp.com/api/user?id=${id}`, {
+      axios.get(`http://localhost:5000/api/user?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

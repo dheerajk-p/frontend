@@ -82,8 +82,8 @@ export default function NewFeedback() {
   const [confirmation, setConfirmation] = useState(false);
   const [value, setValue] = useState(0)
 
-  const courseFeedURL = role === 'admin' ? `https://sgp-feedback-system.herokuapp.com/api/courseFeedback` : `https://sgp-feedback-system.herokuapp.com/api/courseFeedback?sem=${sem}&institute=${inst}&department=${depart}`
-  const feedURL = role === 'admin' ? `https://sgp-feedback-system.herokuapp.com/api/getfeedbacklist` : `https://sgp-feedback-system.herokuapp.com/api/getfeedbacklist?sem=${sem}&institute=${inst}&department=${depart}`
+  const courseFeedURL = role === 'admin' ? `http://localhost:5000/api/courseFeedback` : `http://localhost:5000/api/courseFeedback?sem=${sem}&institute=${inst}&department=${depart}`
+  const feedURL = role === 'admin' ? `http://localhost:5000/api/getfeedbacklist` : `http://localhost:5000/api/getfeedbacklist?sem=${sem}&institute=${inst}&department=${depart}`
 
   const handleConfirmation = () => {
     setConfirmation(false)
@@ -131,7 +131,7 @@ export default function NewFeedback() {
     dispatch(set())
     try {
 
-      let url = value === 0 ? `https://sgp-feedback-system.herokuapp.com/api/feedback?id=${id}` : `https://sgp-feedback-system.herokuapp.com/api/courseFeedback?id=${id}`
+      let url = value === 0 ? `http://localhost:5000/api/feedback?id=${id}` : `http://localhost:5000/api/courseFeedback?id=${id}`
 
       const res = await axios.delete(url, {
         headers: {

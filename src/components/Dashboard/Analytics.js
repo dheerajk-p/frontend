@@ -68,7 +68,7 @@ export default function Settings() {
   const getAnalytics = useCallback(async () => {
     dispatch(set())
     try {
-      const res = await axios.get(`https://sgp-feedback-system.herokuapp.com/api/feedbackAns?id=${id}`, {
+      const res = await axios.get(`http://localhost:5000/api/feedbackAns?id=${id}`, {
         headers: {
           Authorization: `Bearer ${JWTtoken}`
         }

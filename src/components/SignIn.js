@@ -178,7 +178,7 @@ export default function SignIn({ isReq }) {
   const handleVerification = (resend = false) => {
     if (!resend && vCode === "") return;
     dispatch(set())
-    axios.post("https://sgp-feedback-system.herokuapp.com/api/verify", {
+    axios.post("http://localhost:5000/api/verify", {
       email: detail.email,
       otp: vCode,
       reSend: resend
@@ -186,7 +186,7 @@ export default function SignIn({ isReq }) {
       .then((res) => {
         console.log(res.data);
         if (resend) {
-          setOpenDialog(true);
+          // setOpenDialog(true);
           // setOpenSnack({
           //   open: true,
           //   message: "Verification Code Send to your E-mail"
@@ -214,13 +214,13 @@ export default function SignIn({ isReq }) {
       return;
     }
     dispatch(set())
-    axios.post("https://sgp-feedback-system.herokuapp.com/api/login",
+    axios.post("http://localhost:5000/api/login",
       detail
     ).then((res) => {
       console.log(res.data);
       dispatch(reset())
       if (!res.data.isVerified) {
-        setOpenDialog(true);
+        // setOpenDialog(true);
       } else {
         // setOpenSnack({ open: true, message: "Successfully SignedIN" });
         dispatch(openSnack({ message: 'Successfully SignedIN', type: "success" }))

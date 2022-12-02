@@ -147,7 +147,7 @@ export default function SignUp() {
   const handleVerification = () => {
     if (vCode === '') return
     dispatch(set())
-    axios.post('https://sgp-feedback-system.herokuapp.com/api/verify', {
+    axios.post('http://localhost:5000/api/verify', {
       email: detail.email,
       otp: vCode,
       reSend: false
@@ -172,7 +172,7 @@ export default function SignUp() {
       return
     }
     dispatch(set())
-    axios.post('https://sgp-feedback-system.herokuapp.com/api/signup', {
+    axios.post('http://localhost:5000/api/signup', {
       email: detail.email,
       password: detail.password,
       role: detail.role,
@@ -186,7 +186,7 @@ export default function SignUp() {
         // if (res.status === 200) {
         // setOpenSnack({ open: true, message: 'Successfully Signed-UP' })
         dispatch(openSnack({ message: 'Successfully Signed-UP', type: "success" }))
-        setOpenDialog(true)
+        // setOpenDialog(true)
         // } else {
         //   if (res.status === 422) {
         //     // eslint-disable-next-line no-throw-literal
@@ -348,7 +348,7 @@ export default function SignUp() {
                   <MenuItem value={"faculty"}>Faculty</MenuItem>
                   <MenuItem disabled value={"alumini"}>Alumini</MenuItem>
                   {/* <MenuItem value={"employer"}>Employer</MenuItem> */}
-                  <MenuItem disabled value={"admin"}>Admin</MenuItem>
+                  <MenuItem value={"admin"}>Admin</MenuItem>
                 </Select>
               </FormControl>
               <FormControl fullWidth required style={{ margin: "0.5em 0" }} variant="outlined" className={classes.formControl}>
@@ -363,8 +363,9 @@ export default function SignUp() {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={"CSPIT"}>CSPIT</MenuItem>
-                  <MenuItem value={"DEPSTAR"}>DEPSTAR</MenuItem>
+                  <MenuItem value={"DIPLOMA"}>DIPLOMA</MenuItem>
+                  <MenuItem value={"ENGINEERING"}>ENGINEERING</MenuItem>
+                  <MenuItem value={"SCIENCE"}>SCIENCE</MenuItem>
                   {/* <MenuItem value={"alumini"}>I2IM</MenuItem>
                   <MenuItem value={"employer"}>PDPIAS</MenuItem>
                   <MenuItem value={"admin"}>RPCP</MenuItem> */}

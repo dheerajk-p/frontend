@@ -35,7 +35,7 @@ export default function AddQueList() {
   const getFeedbackList = useCallback(async () => {
     dispatch(set())
     try {
-      const res = await axios.get('https://sgp-feedback-system.herokuapp.com/api/getfeedbackque', {
+      const res = await axios.get('http://localhost:5000/api/getfeedbackque', {
         headers: {
           Authorization: `Bearer ${JWTtoken}`
         }
@@ -56,7 +56,7 @@ export default function AddQueList() {
   const deleteFeedback = async (id) => {
     dispatch(set())
     try {
-      const res = await axios.delete(`https://sgp-feedback-system.herokuapp.com/api/feedbackQue?id=${id}`, {
+      const res = await axios.delete(`http://localhost:5000/api/feedbackQue?id=${id}`, {
         headers: {
           Authorization: `Bearer ${JWTtoken}`
         }

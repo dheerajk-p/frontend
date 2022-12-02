@@ -61,21 +61,21 @@ const Form = props => {
   const instDEPSTAR = ['IT', 'CE', 'CSE']
 
   useEffect(() => {
-    axios.get('https://sgp-feedback-system.herokuapp.com/api/faculty', {
+    axios.get('http://localhost:5000/api/faculty', {
       headers: {
         Authorization: `Bearer ${JWTtoken}`
       }
     }).then((res) => {
       setFacultyLst(res.data)
     })
-    axios.get('https://sgp-feedback-system.herokuapp.com/api/courses', {
+    axios.get('http://localhost:5000/api/courses', {
       headers: {
         Authorization: `Bearer ${JWTtoken}`
       }
     }).then((res) => {
       setCourseLst(res.data)
     })
-    axios.get('https://sgp-feedback-system.herokuapp.com/api/getfeedbackque', {
+    axios.get('http://localhost:5000/api/getfeedbackque', {
       headers: {
         Authorization: `Bearer ${JWTtoken}`
       }
@@ -138,7 +138,7 @@ const Form = props => {
 
     dispatch(set())
     try {
-      const res = await axios.post(`https://sgp-feedback-system.herokuapp.com/api/${value === 0 ? 'newFeedback' : 'courseFeedback'}`, {
+      const res = await axios.post(`http://localhost:5000/api/${value === 0 ? 'newFeedback' : 'courseFeedback'}`, {
         name: feedback.name,
         description: feedback.desc,
         feedbackFor: {
@@ -268,8 +268,9 @@ const Form = props => {
               {...(errors["inst"] && { error: true, helperText: errors["inst"] })}
             >
               <MenuItem value=""><em>None</em></MenuItem>
-              <MenuItem value="CSPIT" >CSPIT</MenuItem>
-              <MenuItem value="DEPSTAR" >DEPSTAR</MenuItem>
+              <MenuItem value={"DIPLOMA"}>DIPLOMA</MenuItem>
+              <MenuItem value={"ENGINEERING"}>ENGINEERING</MenuItem>
+              <MenuItem value={"SCIENCE"}>SCIENCE</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -293,13 +294,12 @@ const Form = props => {
               {...(errors["depart"] && { error: true, helperText: errors["depart"] })}
             >
               <MenuItem value=""><em>None</em></MenuItem>
-              {
-                feedback.inst === 'CSPIT' ? instCSPIT.map((item, index) => {
-                  return <MenuItem value={item} key={index}>{item}</MenuItem>
-                }) : feedback.inst === 'DEPSTAR' ? instDEPSTAR.map((item, index) => {
-                  return <MenuItem value={item} key={index}>{item}</MenuItem>
-                }) : null
-              }
+              <MenuItem value={"IT"}>IT</MenuItem>
+              <MenuItem value={"CE"}>CE</MenuItem>
+              <MenuItem value={"EC"}>EC</MenuItem>
+              <MenuItem value={"CL"}>CL</MenuItem>
+              <MenuItem value={"EE"}>EE</MenuItem>
+              <MenuItem value={"ME"}>ME</MenuItem>
             </Select>
           </FormControl>
         </Grid>

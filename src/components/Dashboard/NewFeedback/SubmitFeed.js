@@ -73,7 +73,7 @@ export default function SubmitFeed() {
     dispatch(set())
     try {
 
-      const res = await axios.get(`https://sgp-feedback-system.herokuapp.com/api/getfeedbackque?id=${query.get('qid')}`, {
+      const res = await axios.get(`http://localhost:5000/api/getfeedbackque?id=${query.get('qid')}`, {
         headers: {
           Authorization: `Bearer ${JWTtoken}`
         }
@@ -98,7 +98,7 @@ export default function SubmitFeed() {
     console.log(ans, query.get('fid'), userId)
     dispatch(set())
     try {
-      let url = query.get('isCourse') === 0 ? `https://sgp-feedback-system.herokuapp.com/api/feedbackAns` : `https://sgp-feedback-system.herokuapp.com/api/courseFeedbackAns`
+      let url = Number(query.get('isCourse')) === 0 ? `http://localhost:5000/api/feedbackAns` : `http://localhost:5000/api/courseFeedbackAns`
       const res = await axios.post(url, {
         feedbackId: query.get('fid'),
         userId,

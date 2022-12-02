@@ -52,7 +52,7 @@ const Form = props => {
     // console.log(name, queList, userId)
     dispatch(set())
     try {
-      const res = await axios.post('https://sgp-feedback-system.herokuapp.com/api/addfeedbackque', {
+      const res = await axios.post('http://localhost:5000/api/addfeedbackque', {
         name: name,
         questions: queList,
         createdBy: userId

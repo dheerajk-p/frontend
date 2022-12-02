@@ -24,12 +24,4 @@ You will also see any lint errors in the console.
 
 ## Links to other repositories
 
-Node-Js Backend [Click here](https://github.com/KrutikGadhiya/SGP-Feedback_system-backend)
-
-Flutter Application [Click here](https://github.com/AmanDesai10/Feedback-System-App)
-
-## Project Members
-
-[Aman Desai](https://github.com/AmanDesai10)
-
-[Me (Krutik Gadhiya)](https://github.com/KrutikGadhiya)
+Node-Js Backend [Click here](https://github.com/dheerajk-p/backend)
